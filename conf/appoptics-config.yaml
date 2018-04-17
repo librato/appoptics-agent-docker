@@ -2,7 +2,7 @@
 # log_level for the Snap daemon. Supported values are
 # 1 - Debug, 2 - Info, 3 - Warning, 4 - Error, 5 - Fatal.
 # Default value is 3.
-#log_level: 3
+log_level: 2
 log_format: text
 log_colors: true
 
