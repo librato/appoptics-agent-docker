@@ -45,7 +45,7 @@ control:
       publisher-appoptics:
         all:
           token: APPOPTICS_TOKEN
-          url: "https://api.appoptics.com/v1/measurements"
+          url: "https://my-stg.appoptics.com/v1/measurements"
           # Set this option if you want a different "host" tag to be associated with the metrics you report.
           # hostname_alias: myhostname
 

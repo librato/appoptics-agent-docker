@@ -21,7 +21,7 @@ spec:
         imagePullPolicy: Never
         env:
           - name: APPOPTICS_TOKEN
-            value: 'APPOPTICS_TOKEN'
+            value: 'b686a827474ec1d4794a8bfb86af1e409456875e417bdfa925a5a6430eedcd88'
           - name: APPOPTICS_HOSTNAME
             valueFrom:
               fieldRef:
