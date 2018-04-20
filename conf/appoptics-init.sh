@@ -39,8 +39,13 @@ fi
 
 # Set to true to enable or disable specific plugins
 if [ "$APPOPTICS_ENABLE_DOCKER" = "true" ]; then
-    mv /tmp/appoptics-configs/docker.yaml /opt/appoptics/etc/plugins.d/docker.yaml
-    mv /tmp/appoptics-configs/task-aodocker.yaml /opt/appoptics/etc/tasks.d/task-aodocker.yaml
+    if [ -z $STREAMING ]; then
+        mv /tmp/appoptics-configs/docker.yaml /opt/appoptics/etc/plugins.d/docker.yaml
+        mv /tmp/appoptics-configs/task-aodocker.yaml /opt/appoptics/etc/tasks.d/task-aodocker.yaml
+    else
+        mv /tmp/appoptics-configs/docker-stream.yaml /opt/appoptics/etc/plugins.d/docker-stream.yaml
+        mv /tmp/appoptics-configs/task-aodocker-stream.yaml /opt/appoptics/etc/tasks.d/task-aodocker-stream.yaml
+    fi
 fi
 
 if [ "$APPOPTICS_ENABLE_KUBERNETES" = "true" ]; then

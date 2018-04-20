@@ -2,13 +2,17 @@
 version: 1
 
 schedule:
-  type: cron
-  interval: "0 * * * * *"
+  type: streaming
 
 deadline: "55s"
 
 workflow:
   collect:
+
+    config:
+      /docker/*:
+        MaxCollectDuration: "55s"
+        MaxMetricsBuffer: 50
 
     metrics:
       /docker/*/container/count: {}
