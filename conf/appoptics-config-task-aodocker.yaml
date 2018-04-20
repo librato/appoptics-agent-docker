@@ -1,30 +1,19 @@
 ---
 version: 1
+
 schedule:
-  # Run every minute
-  type: cron
-  interval: "0 * * * * *"
+  type: streaming
+
 deadline: "55s"
+
 workflow:
   collect:
-    # tags:
-    # /:
-    #   annotation_io_kubernetes_container_hash: c5b6bd18
-    #   annotation_io_kubernetes_container_restartCount: 0x
-    #   annotation_io_kubernetes_container_terminationMessagePath: /dev/termination-log
-    #   annotation_io_kubernetes_container_terminationMessagePolicy: File
-    #   annotation_io_kubernetes_pod_terminationGracePeriod: 30x
-    #   creation_time: 2018-04-16T10-05-26Z
-    #   full_id: b73cc12ddd22933653242b0c5602c318f2490747a4bda2a0292fdd6944048650
-    #   image_name: gcr_io/k8s-minikube/storage-provisioner@sha256:088daa9fcbccf04c3f415d77d5a6360d2803922190b675cb7fc88a9d2d91985a
-    #   io_kubernetes_container_logpath: /var/log/pods/a431c57e-415d-11e8-967e-080027ca75cb/storage-provisioner/0_log
-    #   io_kubernetes_container_name: storage-provisioner
-    #   io_kubernetes_docker_type: container
-    #   io_kubernetes_pod_name: storage-provisioner
-    #   io_kubernetes_pod_namespace: kube-system
-    #   io_kubernetes_pod_uid: a431c57e-415d-11e8-967e-080027ca75cb
-    #   io_kubernetes_sandbox_id: 0464eb0668a720201cc7d0cdc746b47a6c26bc6c8847824e1f6fc9369ddcaeb8
-    #   status: up
+
+    config:
+      /docker/*:
+        MaxCollectDuration: "55s"
+        MaxMetricsBuffer: 50
+
     metrics:
       /docker/*/container/count: {}
       /docker/*/container/paused: {}
@@ -230,6 +219,7 @@ workflow:
       #/docker/*/spec/size_rw: {}
       #/docker/*/spec/size_root_fs: {}
       #/docker/*/spec/labels/*/value: {}
+
     publish:
       - plugin_name: publisher-appoptics
         config:
