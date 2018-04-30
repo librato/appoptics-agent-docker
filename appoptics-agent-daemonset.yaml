@@ -17,11 +17,11 @@ spec:
         effect: NoSchedule
       containers:
       - name: appoptics-agent-ds
-        image: 'appoptics/appoptics-agent-docker:v0.1'
-        imagePullPolicy: Always
+        image: 'appoptics-agent-docker-local'
+        imagePullPolicy: Never
         env:
           - name: APPOPTICS_TOKEN
-            value: 'APPOPTICS_TOKEN'
+            value: 'b686a827474ec1d4794a8bfb86af1e409456875e417bdfa925a5a6430eedcd88'
           - name: APPOPTICS_HOSTNAME
             valueFrom:
               fieldRef:
@@ -38,6 +38,8 @@ spec:
             readOnly: true
           - name: cgroup
             mountPath: /sys/fs/cgroup
+          - name: temp
+            mountPath: /tmp/k8s
       volumes:
         - name: docker-sock
           hostPath:
@@ -48,3 +50,6 @@ spec:
         - name: cgroup
           hostPath:
             path: /sys/fs/cgroup
+        - name: temp
+          hostPath:
+            path: /tmp/k8s

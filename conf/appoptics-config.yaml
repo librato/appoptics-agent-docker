@@ -2,7 +2,7 @@
 # log_level for the Snap daemon. Supported values are
 # 1 - Debug, 2 - Info, 3 - Warning, 4 - Error, 5 - Fatal.
 # Default value is 3.
-#log_level: 3
+log_level: 2
 log_format: text
 log_colors: true
 
@@ -45,7 +45,7 @@ control:
       publisher-appoptics:
         all:
           token: APPOPTICS_TOKEN
-          url: "https://api.appoptics.com/v1/measurements"
+          url: "https://my-stg.appoptics.com/v1/measurements"
           # Set this option if you want a different "host" tag to be associated with the metrics you report.
           # hostname_alias: myhostname
 

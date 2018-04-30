@@ -8,4 +8,4 @@ collector:
 
 load:
   plugin: snap-plugin-collector-aodocker
-  task: task-aodocker.yaml
+  task: task-aodocker-stream.yaml
