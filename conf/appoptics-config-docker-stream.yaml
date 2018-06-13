@@ -5,6 +5,7 @@ collector:
       endpoint: "unix:///var/run/docker.sock"
       # procfs: "/proc"
       procfs: "/host/proc"
+      interval: "60s"
 
 load:
   plugin: snap-plugin-collector-aodocker
